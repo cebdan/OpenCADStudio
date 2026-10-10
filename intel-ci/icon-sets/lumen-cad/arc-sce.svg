@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <linearGradient id="m" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FBFEFF"/><stop offset=".26" stop-color="#C5D6E3"/><stop offset=".67" stop-color="#536A7B"/><stop offset="1" stop-color="#1A2C37"/></linearGradient>
+    <linearGradient id="b" x1=".1" y1=".08" x2=".9" y2=".95"><stop stop-color="#E5FAFF"/><stop offset=".29" stop-color="#6ACBFF"/><stop offset=".65" stop-color="#118CEB"/><stop offset="1" stop-color="#043F86"/></linearGradient>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#EFFFF0"/><stop offset=".38" stop-color="#81EE69"/><stop offset="1" stop-color="#0A6D31"/></linearGradient>
+    <radialGradient id="n" cx="28%" cy="20%" r="78%"><stop stop-color="#F8FEFF"/><stop offset=".18" stop-color="#ADEBFF"/><stop offset=".52" stop-color="#299AF0"/><stop offset="1" stop-color="#053372"/></radialGradient>
+  </defs>
+  <ellipse cx="16.1" cy="27.05" rx="10.95" ry="1.2" fill="#07131E" opacity=".58"/>
+  <path d="M5.85 23.55A13.1 13.1 0 0 1 25.8 7.8" stroke="#07131E" stroke-width="4.9" opacity=".78"/>
+  <path d="M5.85 23.55A13.1 13.1 0 0 1 25.8 7.8" stroke="url(#m)" stroke-width="3.15"/>
+  <path d="M6.55 22.85A12.1 12.1 0 0 1 25.1 8.5" stroke="url(#b)" stroke-width="1.2"/>
+  <path d="m5.85 23.55 9.85-6.15m0 0 10.1-9.6" stroke="#07131E" stroke-width="2.85" opacity=".72"/>
+  <path d="m5.85 23.55 9.85-6.15m0 0 10.1-9.6" stroke="url(#m)" stroke-width="1.35"/>
+  <circle cx="5.85" cy="23.55" r="2.78" fill="url(#g)" stroke="#D4FFE8" stroke-width=".48"/>
+  <circle cx="15.7" cy="17.4" r="2.55" fill="url(#m)" stroke="#D6F3FF" stroke-width=".46"/>
+  <circle cx="15.7" cy="17.4" r="1.24" fill="#0A4F91"/>
+  <circle cx="25.8" cy="7.8" r="2.38" fill="url(#n)" stroke="#C7F2FF" stroke-width=".46"/>
+  <path d="m8.55 21.75 1.53.1-.85 1.28" fill="url(#g)" stroke="#D4FFE8" stroke-width=".28"/>
+  <g fill="#F8FEFF" opacity=".9"><ellipse cx="4.9" cy="22.58" rx=".76" ry=".52"/><ellipse cx="14.84" cy="16.44" rx=".63" ry=".43"/><ellipse cx="25" cy="6.92" rx=".67" ry=".47"/></g>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#F8FCFF"/><stop offset=".25" stop-color="#C7D9E8"/><stop offset=".62" stop-color="#71869A"/><stop offset="1" stop-color="#233441"/></linearGradient>
+    <linearGradient id="blue" x1=".1" y1=".08" x2=".86" y2=".94"><stop stop-color="#E4F8FF"/><stop offset=".28" stop-color="#78CCFF"/><stop offset=".64" stop-color="#1594ED"/><stop offset="1" stop-color="#044B92"/></linearGradient>
+    <radialGradient id="node" cx="29%" cy="20%" r="78%"><stop stop-color="#F6FDFF"/><stop offset=".17" stop-color="#A8E9FF"/><stop offset=".52" stop-color="#2A9FF3"/><stop offset="1" stop-color="#063672"/></radialGradient>
+  </defs>
+  <ellipse cx="16" cy="27.35" rx="10.9" ry="1.35" fill="#06111B" opacity=".59"/>
+  <circle cx="16" cy="15.55" r="10.15" stroke="#06111B" stroke-width="4.82" opacity=".77"/>
+  <circle cx="16" cy="15.55" r="10.15" stroke="url(#chrome)" stroke-width="3.16"/>
+  <circle cx="16" cy="15.55" r="8.56" stroke="url(#blue)" stroke-width="1.14"/>
+  <path d="M10.25 7.18 25.65 15.1 14.2 25.23Z" fill="#0A66B6" opacity=".25"/>
+  <path d="M10.25 7.18 25.65 15.1 14.2 25.23Z" stroke="#A7E5FF" stroke-width=".78" opacity=".75"/>
+  <path d="M11.14 8.18 24.58 15.1" stroke="#F4FCFF" stroke-width=".35" opacity=".7"/>
+  <g fill="#062D60" stroke="#C4F0FF" stroke-width=".42"><circle cx="10.25" cy="7.18" r="2.72"/><circle cx="25.65" cy="15.1" r="2.72"/><circle cx="14.2" cy="25.23" r="2.72"/></g>
+  <g fill="url(#node)"><circle cx="10.25" cy="7.18" r="2.26"/><circle cx="25.65" cy="15.1" r="2.26"/><circle cx="14.2" cy="25.23" r="2.26"/></g>
+  <g fill="#F8FEFF" opacity=".92"><ellipse cx="9.38" cy="6.25" rx=".7" ry=".49"/><ellipse cx="24.78" cy="14.17" rx=".7" ry=".49"/><ellipse cx="13.33" cy="24.3" rx=".7" ry=".49"/></g>
+</svg>

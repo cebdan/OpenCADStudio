@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#F8FCFF"/><stop offset=".25" stop-color="#C7D9E8"/><stop offset=".62" stop-color="#71869A"/><stop offset="1" stop-color="#233441"/></linearGradient>
+    <linearGradient id="blue" x1=".1" y1=".08" x2=".86" y2=".94"><stop stop-color="#E4F8FF"/><stop offset=".28" stop-color="#78CCFF"/><stop offset=".64" stop-color="#1594ED"/><stop offset="1" stop-color="#044B92"/></linearGradient>
+    <radialGradient id="node" cx="29%" cy="20%" r="78%"><stop stop-color="#F6FDFF"/><stop offset=".17" stop-color="#A8E9FF"/><stop offset=".52" stop-color="#2A9FF3"/><stop offset="1" stop-color="#063672"/></radialGradient>
+  </defs>
+  <ellipse cx="16" cy="27.25" rx="11.05" ry="1.38" fill="#06111B" opacity=".59"/>
+  <circle cx="16" cy="15.55" r="9.72" stroke="#06111B" stroke-width="4.78" opacity=".76"/>
+  <circle cx="16" cy="15.55" r="9.72" stroke="url(#chrome)" stroke-width="3.12"/>
+  <circle cx="16" cy="15.55" r="8.14" stroke="url(#blue)" stroke-width="1.14"/>
+  <path d="M4.45 15.55H27.55" stroke="#06111B" stroke-width="3.62" opacity=".76"/>
+  <path d="M4.45 15.55H27.55" stroke="url(#chrome)" stroke-width="2.18"/>
+  <path d="M7.4 14.84h17.22" stroke="#E9FAFF" stroke-width=".45" opacity=".92"/>
+  <path d="m5.08 15.55 2.75-2.08M5.08 15.55l2.75 2.08m19.09-2.08-2.75-2.08m2.75 2.08-2.75 2.08" stroke="url(#blue)" stroke-width="1.08"/>
+  <circle cx="16" cy="15.55" r="1.56" fill="#092A51"/>
+  <circle cx="16" cy="15.55" r="1.13" fill="url(#node)" stroke="#C4F0FF" stroke-width=".32"/>
+  <g fill="#062D60" stroke="#C4F0FF" stroke-width=".4"><circle cx="6.28" cy="15.55" r="2.28"/><circle cx="25.72" cy="15.55" r="2.28"/></g>
+  <g fill="url(#node)"><circle cx="6.28" cy="15.55" r="1.88"/><circle cx="25.72" cy="15.55" r="1.88"/></g>
+  <g fill="#F8FEFF" opacity=".9"><ellipse cx="5.53" cy="14.76" rx=".58" ry=".4"/><ellipse cx="24.97" cy="14.76" rx=".58" ry=".4"/></g>
+</svg>

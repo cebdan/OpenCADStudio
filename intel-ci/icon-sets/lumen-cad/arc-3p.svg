@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <linearGradient id="m" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FAFDFF"/><stop offset=".25" stop-color="#C6D4E1"/><stop offset=".64" stop-color="#5C7184"/><stop offset="1" stop-color="#1A2C39"/></linearGradient>
+    <linearGradient id="b" x1=".1" y1=".05" x2=".9" y2=".95"><stop stop-color="#E5FAFF"/><stop offset=".27" stop-color="#73CCFF"/><stop offset=".65" stop-color="#158CEA"/><stop offset="1" stop-color="#043F85"/></linearGradient>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#EBFFE4"/><stop offset=".38" stop-color="#86EF6D"/><stop offset="1" stop-color="#0B672E"/></linearGradient>
+    <radialGradient id="n" cx="28%" cy="18%" r="80%"><stop stop-color="#F9FEFF"/><stop offset=".2" stop-color="#B1ECFF"/><stop offset=".54" stop-color="#278FE8"/><stop offset="1" stop-color="#032B67"/></radialGradient>
+  </defs>
+  <ellipse cx="16" cy="26.85" rx="11" ry="1.18" fill="#07131E" opacity=".58"/>
+  <path d="M5.75 22.65C8.95 7.2 20.45 5.45 26.2 19.55" stroke="#07131E" stroke-width="4.9" opacity=".78"/>
+  <path d="M5.75 22.65C8.95 7.2 20.45 5.45 26.2 19.55" stroke="url(#m)" stroke-width="3.15"/>
+  <path d="M6.45 21.9C9.45 8.2 19.88 6.5 25.5 18.85" stroke="url(#b)" stroke-width="1.2"/>
+  <path d="m16.1 8.05 1.92-1.14-.14 2.2" fill="url(#g)" stroke="#C8FFE0" stroke-width=".32"/>
+  <circle cx="5.75" cy="22.65" r="2.43" fill="url(#n)" stroke="#C7F2FF" stroke-width=".45"/>
+  <circle cx="15.85" cy="8.25" r="2.53" fill="url(#g)" stroke="#CFFFF0" stroke-width=".45"/>
+  <circle cx="26.2" cy="19.55" r="2.43" fill="url(#n)" stroke="#C7F2FF" stroke-width=".45"/>
+  <g fill="#F7FDFF" opacity=".9"><ellipse cx="4.94" cy="21.75" rx=".68" ry=".47"/><ellipse cx="15" cy="7.29" rx=".7" ry=".48"/><ellipse cx="25.4" cy="18.65" rx=".68" ry=".47"/></g>
+</svg>

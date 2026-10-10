@@ -4,3 +4,6 @@
 # Binary files must never be line-ending normalized.
 *.png binary
 *.ttf binary
+
+# Unified patches contain a single space on empty context lines.
+intel-ci/*.patch whitespace=-blank-at-eol

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#F8FCFF"/><stop offset=".25" stop-color="#C7D9E8"/><stop offset=".62" stop-color="#71869A"/><stop offset="1" stop-color="#233441"/></linearGradient>
+    <linearGradient id="blue" x1=".1" y1=".08" x2=".86" y2=".94"><stop stop-color="#E4F8FF"/><stop offset=".28" stop-color="#78CCFF"/><stop offset=".64" stop-color="#1594ED"/><stop offset="1" stop-color="#044B92"/></linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#E9FFD9"/><stop offset=".28" stop-color="#8CF06C"/><stop offset=".67" stop-color="#35BE42"/><stop offset="1" stop-color="#0C5629"/></linearGradient>
+    <radialGradient id="node" cx="29%" cy="20%" r="78%"><stop stop-color="#F6FDFF"/><stop offset=".17" stop-color="#A8E9FF"/><stop offset=".52" stop-color="#2A9FF3"/><stop offset="1" stop-color="#063672"/></radialGradient>
+  </defs>
+  <ellipse cx="16" cy="27.25" rx="11.2" ry="1.38" fill="#06111B" opacity=".59"/>
+  <ellipse cx="16" cy="15.55" rx="10.65" ry="6.7" stroke="#06111B" stroke-width="4.8" opacity=".78"/>
+  <ellipse cx="16" cy="15.55" rx="10.65" ry="6.7" stroke="url(#chrome)" stroke-width="3.15"/>
+  <ellipse cx="16" cy="15.55" rx="9.03" ry="5.13" stroke="url(#blue)" stroke-width="1.16"/>
+  <path d="M4.92 15.55h22.16" stroke="#06111B" stroke-width="3.5" opacity=".76"/>
+  <path d="M4.92 15.55h22.16" stroke="url(#chrome)" stroke-width="2.1"/>
+  <path d="M7.5 14.86h17" stroke="#F2FCFF" stroke-width=".44" opacity=".9"/>
+  <path d="M16 15.55v-5.95" stroke="#06111B" stroke-width="3.02" opacity=".72"/>
+  <path d="M16 15.55v-5.95" stroke="url(#green)" stroke-width="1.68"/>
+  <path d="m14.55 10.42 1.45-2.36 1.45 2.36" fill="url(#green)" stroke="#D2FFD0" stroke-width=".34"/>
+  <g fill="#062D60" stroke="#C4F0FF" stroke-width=".42"><circle cx="5.35" cy="15.55" r="2.72"/><circle cx="26.65" cy="15.55" r="2.72"/></g>
+  <g fill="url(#node)"><circle cx="5.35" cy="15.55" r="2.26"/><circle cx="26.65" cy="15.55" r="2.26"/></g>
+  <circle cx="16" cy="9.03" r="1.65" fill="url(#green)" stroke="#D2FFD0" stroke-width=".33"/>
+  <g fill="#F8FEFF" opacity=".91"><ellipse cx="4.48" cy="14.62" rx=".7" ry=".49"/><ellipse cx="25.78" cy="14.62" rx=".7" ry=".49"/><ellipse cx="15.48" cy="8.45" rx=".43" ry=".3"/></g>
+</svg>

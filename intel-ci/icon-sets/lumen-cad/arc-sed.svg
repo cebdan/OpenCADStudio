@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <linearGradient id="m" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FAFDFF"/><stop offset=".25" stop-color="#C4D5E1"/><stop offset=".66" stop-color="#596E80"/><stop offset="1" stop-color="#1A2C38"/></linearGradient>
+    <linearGradient id="b" x1=".08" y1=".08" x2=".92" y2=".92"><stop stop-color="#E5FAFF"/><stop offset=".28" stop-color="#73CCFF"/><stop offset=".64" stop-color="#158EEB"/><stop offset="1" stop-color="#043F86"/></linearGradient>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#EFFFF0"/><stop offset=".36" stop-color="#81EE69"/><stop offset="1" stop-color="#096B30"/></linearGradient>
+    <radialGradient id="n" cx="28%" cy="20%" r="78%"><stop stop-color="#FAFEFF"/><stop offset=".18" stop-color="#ADEAFF"/><stop offset=".52" stop-color="#2599EF"/><stop offset="1" stop-color="#043271"/></radialGradient>
+  </defs>
+  <ellipse cx="16" cy="27" rx="10.9" ry="1.16" fill="#07131E" opacity=".58"/>
+  <path d="M6.05 22.85A13.1 13.1 0 0 1 26.05 19.5" stroke="#07131E" stroke-width="4.9" opacity=".78"/>
+  <path d="M6.05 22.85A13.1 13.1 0 0 1 26.05 19.5" stroke="url(#m)" stroke-width="3.15"/>
+  <path d="M6.75 22.15A12.1 12.1 0 0 1 25.35 18.8" stroke="url(#b)" stroke-width="1.2"/>
+  <path d="m4.15 25.8 5.05-5.5" stroke="#07131E" stroke-width="4" opacity=".72"/>
+  <path d="m4.15 25.8 5.05-5.5" stroke="url(#g)" stroke-width="2.15"/>
+  <path d="m9.2 20.3-3.15.5.8 2.87" fill="url(#g)" stroke="#CFFFF0" stroke-width=".31"/>
+  <circle cx="6.05" cy="22.85" r="2.56" fill="url(#g)" stroke="#D1FFE7" stroke-width=".46"/>
+  <circle cx="26.05" cy="19.5" r="2.48" fill="url(#n)" stroke="#C7F2FF" stroke-width=".46"/>
+  <circle cx="15.95" cy="12.05" r="1.35" fill="url(#b)" stroke="#C7F2FF" stroke-width=".32" opacity=".78"/>
+  <g fill="#F8FEFF" opacity=".9"><ellipse cx="5.2" cy="21.9" rx=".7" ry=".48"/><ellipse cx="25.22" cy="18.58" rx=".67" ry=".47"/></g>
+</svg>
