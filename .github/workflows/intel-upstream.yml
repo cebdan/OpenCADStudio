@@ -1,0 +1,124 @@
+name: Intel Mac — clean upstream
+
+on:
+  schedule:
+    - cron: '23 4 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/intel-upstream.yml'
+      - 'intel-ci/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: intel-upstream-release
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      sha: ${{ steps.upstream.outputs.sha }}
+      tag: ${{ steps.upstream.outputs.tag }}
+      needed: ${{ steps.upstream.outputs.needed }}
+    steps:
+      - name: Check newest upstream commit and existing successful release
+        id: upstream
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FORK_REPO: ${{ github.repository }}
+          CONFIG_SHA: ${{ github.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha=$(gh api repos/HakanSeven12/OpenCADStudio/commits/main --jq .sha)
+          [[ "$sha" =~ ^[0-9a-f]{40}$ ]]
+          tag="upstream-intel-${sha:0:12}-${CONFIG_SHA:0:7}"
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          if gh release view "$tag" --repo "$FORK_REPO" --json assets --jq '.assets[].name' | grep -q '\.dmg$'; then
+            echo 'needed=false' >> "$GITHUB_OUTPUT"
+          else
+            echo 'needed=true' >> "$GITHUB_OUTPUT"
+          fi
+
+  build:
+    needs: check
+    if: needs.check.outputs.needed == 'true'
+    runs-on: macos-15-intel
+    timeout-minutes: 150
+    permissions:
+      contents: write
+    env:
+      RUST_MIN_STACK: '67108864'
+      CARGO_INCREMENTAL: '0'
+      MACOSX_DEPLOYMENT_TARGET: '11.0'
+      HOMEBREW_NO_AUTO_UPDATE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: config
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: HakanSeven12/OpenCADStudio
+          ref: ${{ needs.check.outputs.sha }}
+          path: source
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Verify clean upstream checkout
+        working-directory: source
+        run: |
+          set -euo pipefail
+          git diff --exit-code
+          test -z "$(git status --porcelain)"
+          test "$(uname -m)" = x86_64
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-apple-darwin
+      - name: Install SVG renderer
+        run: brew list librsvg >/dev/null 2>&1 || brew install librsvg
+      - name: Build Intel application and DMG
+        working-directory: source
+        env:
+          TARGET: x86_64-apple-darwin
+          DEVELOPER_ID: '-'
+          SOURCE_DIR: ${{ github.workspace }}/source
+        run: bash ../config/intel-ci/build_macos.sh
+      - name: Preserve built DMG before final validation
+        uses: actions/upload-artifact@v4
+        with:
+          name: Intel-Mac-Clean-Upstream-DMG
+          path: |
+            source/dist/*.dmg
+            source/dist/*.sha256
+          if-no-files-found: error
+          retention-days: 3
+      - name: Verify Intel binary and packaged MCP handshake
+        working-directory: source
+        run: |
+          set -euo pipefail
+          lipo dist/OpenCADStudio.app/Contents/MacOS/OpenCADStudio-App -verify_arch x86_64
+          codesign --verify --deep --strict dist/OpenCADStudio.app
+          python3 docs/automation/mcp_handshake.py dist/OpenCADStudio.app/Contents/MacOS/OpenCADStudio
+      - name: Publish downloadable DMG
+        working-directory: source
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FORK_REPO: ${{ github.repository }}
+          UPSTREAM_SHA: ${{ needs.check.outputs.sha }}
+          RELEASE_TAG: ${{ needs.check.outputs.tag }}
+          CONFIG_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          version=$(sed -n 's/^version = "\(.*\)"/\1/p' Cargo.toml | head -1)
+          notes="Intel x86_64 build of upstream $UPSTREAM_SHA, version $version, with original upstream icons and no source patches. Configuration: $CONFIG_SHA. Ad-hoc signed; not notarized by Apple. Built and MCP-handshake checked on macOS 15 Intel; older macOS versions are not tested."
+          if ! gh release view "$RELEASE_TAG" --repo "$FORK_REPO" >/dev/null 2>&1; then
+            gh release create "$RELEASE_TAG" --repo "$FORK_REPO" --target "$CONFIG_SHA" --draft --title "OpenCADStudio $version — Intel Mac (clean upstream)" --notes "$notes"
+          fi
+          gh release upload "$RELEASE_TAG" dist/*.dmg dist/*.sha256 --repo "$FORK_REPO" --clobber
+          gh release edit "$RELEASE_TAG" --repo "$FORK_REPO" --draft=false --latest
+          echo "Download: https://github.com/$FORK_REPO/releases/tag/$RELEASE_TAG" >> "$GITHUB_STEP_SUMMARY"

@@ -19,7 +19,8 @@
 # Output: dist/OpenCADStudio.app and a target-specific .dmg.
 set -euo pipefail
 
-cd "$(dirname "$0")/.."
+# Build an untouched upstream checkout using this external packaging driver.
+cd "${SOURCE_DIR:-$(dirname "$0")/..}"
 TARGET="${TARGET:-$(rustc -vV | sed -n 's/^host: //p')}"
 case "$TARGET" in
     aarch64-apple-darwin) MACOS_ARCH=arm64 ;;
