@@ -1,15 +1,15 @@
 # OpenCADStudio — Intel Mac Fork
 
-Этот форк [OpenCADStudio](https://github.com/HakanSeven12/OpenCADStudio) предназначен для поддержки **Intel Mac (x86_64)** и разработки собственного набора значков **Lumen CAD**.
+This fork of [OpenCADStudio](https://github.com/HakanSeven12/OpenCADStudio) focuses on **Intel Mac (x86_64)** support and the development of our custom **Lumen CAD** icon pack.
 
-За документацией, описанием возможностей, новостями и всеми остальными вопросами обращайтесь к [оригинальному upstream-проекту](https://github.com/HakanSeven12/OpenCADStudio).
+For documentation, features, news, and everything else, please visit the [original upstream project](https://github.com/HakanSeven12/OpenCADStudio).
 
-## Благодарность и поддержка
+## Acknowledgments and support
 
-Спасибо **[HakanSeven12](https://github.com/HakanSeven12)** за создание и развитие OpenCADStudio!
+Thank you to **[HakanSeven12](https://github.com/HakanSeven12)** for creating and developing OpenCADStudio!
 
-Пожалуйста, поддержите автора и оригинальный проект: [GitHub Sponsors](https://github.com/sponsors/HakanSeven12) · [Patreon](https://www.patreon.com/HakanSeven12). Ваш вклад помогает дальнейшему развитию OpenCADStudio.
+Please support the original author and project through [GitHub Sponsors](https://github.com/sponsors/HakanSeven12) or [Patreon](https://www.patreon.com/HakanSeven12). Your contribution helps keep OpenCADStudio growing.
 
-## Лицензия
+## License
 
-OpenCADStudio распространяется под лицензией [GNU General Public License v3.0](LICENSE).
+OpenCADStudio is distributed under the [GNU General Public License v3.0](LICENSE).
