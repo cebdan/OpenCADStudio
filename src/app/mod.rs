@@ -13,21 +13,19 @@ pub(crate) use command_driver::{copy_to_clipboard_kernel, paste_entities_kernel,
 pub(crate) mod commands;
 pub(crate) mod dim_viewport;
 #[cfg(test)]
-mod viewport_dimension_tests;
-#[cfg(test)]
 mod dimension_preview_tests;
 mod document;
 mod drafting_settings;
 pub(crate) mod expr_eval;
-mod options_session;
 mod find_replace;
 pub(crate) mod helpers;
 mod history;
 mod layers;
 mod model_ops;
+mod mtext_editor;
 mod navigation;
 mod node_graph;
-mod mtext_editor;
+mod options_session;
 #[cfg(not(target_arch = "wasm32"))]
 pub mod plugin_host;
 mod presspull_ops;
@@ -42,6 +40,8 @@ mod text_inline;
 mod tolerance_dialog;
 mod update;
 mod view;
+#[cfg(test)]
+mod viewport_dimension_tests;
 mod visibility;
 
 pub use style_ops::StyleKind;
@@ -1740,8 +1740,7 @@ impl ClipboardDeps {
                 if !objects.is_empty() {
                     let mut annotation_scales = Vec::new();
                     for (_, object) in &objects {
-                        let codec::objects::ObjectType::ObjectContextData(context) = object
-                        else {
+                        let codec::objects::ObjectType::ObjectContextData(context) = object else {
                             continue;
                         };
                         if annotation_scales
@@ -1872,10 +1871,7 @@ impl ClipboardDeps {
     /// Snapshot every block definition the `entities` reference through an
     /// INSERT, walking nested INSERTs transitively. Model/paper space and
     /// xref blocks are skipped — those aren't portable definitions.
-    fn capture_blocks(
-        doc: &codec::CadDocument,
-        entities: &[codec::EntityType],
-    ) -> Vec<BlockDef> {
+    fn capture_blocks(doc: &codec::CadDocument, entities: &[codec::EntityType]) -> Vec<BlockDef> {
         use codec::EntityType;
         use rustc_hash::FxHashSet;
         let mut seen: FxHashSet<String> = FxHashSet::default();
@@ -2671,11 +2667,11 @@ pub enum Message {
     ToggleXrefManager,
     /// Rescan the active drawing's references into the palette.
     XrefManagerRefresh,
-    /// Toggle one palette row (entry index) in the multi-selection set.
-    XrefManagerSelect(usize),
+    /// Toggle one palette row (stable row id) in the multi-selection set.
+    XrefManagerSelect(crate::ui::window::xref_manager::XrefRowId),
     /// Right-click on a palette row: single-select it when outside the
     /// selection (the context menu then acts on the selection).
-    XrefRowRightClick(usize),
+    XrefRowRightClick(crate::ui::window::xref_manager::XrefRowId),
     /// Flip the palette's list/tree presentation.
     XrefManagerToggleTree,
     /// Start a reference-table column divider drag (column index).
@@ -2712,16 +2708,19 @@ pub enum Message {
     XrefManagerToggleExpand(u64),
     /// Selection-scoped palette operation (detach/unload/reload/overlay/pathtype).
     XrefManagerOp(crate::ui::window::xref_manager::XrefPaletteOp),
-    /// Row-scoped palette operation: selects row `index`, then applies the
-    /// operation to it.
-    XrefRowOp(usize, crate::ui::window::xref_manager::XrefPaletteOp),
+    /// Row-scoped palette operation: selects the row by stable id, then
+    /// applies the operation to it.
+    XrefRowOp(
+        crate::ui::window::xref_manager::XrefRowId,
+        crate::ui::window::xref_manager::XrefPaletteOp,
+    ),
     /// Prefill the command line for Find & Replace across references
     /// (`XREF Path Find <old> <new>`); the CLI parses and runs it.
     XrefFindReplacePrompt,
-    /// Pick a new path for a specific row index.
-    XrefRowPathPick(usize),
-    /// Prefill the command line for Find & Replace for a specific row index.
-    XrefRowFindReplacePrompt(usize),
+    /// Pick a new path for a specific row (stable id).
+    XrefRowPathPick(crate::ui::window::xref_manager::XrefRowId),
+    /// Prefill the command line for Find & Replace for a specific row id.
+    XrefRowFindReplacePrompt(crate::ui::window::xref_manager::XrefRowId),
     XrefRowChangePathEnter,
     XrefRowChangePathLeave,
     LayerToggleVisible(String),
