@@ -89,11 +89,20 @@ jobs:
           TARGET: x86_64-apple-darwin
           DEVELOPER_ID: '-'
         run: bash packaging/build_macos_signed.sh
+      - name: Preserve built DMG before final validation
+        uses: actions/upload-artifact@v4
+        with:
+          name: Intel-Mac-DMG
+          path: |
+            source/dist/*.dmg
+            source/dist/*.sha256
+          if-no-files-found: error
+          retention-days: 3
       - name: Verify Intel binary and packaged MCP handshake
         working-directory: source
         run: |
           set -euo pipefail
-          lipo -verify_arch x86_64 dist/OpenCADStudio.app/Contents/MacOS/OpenCADStudio-App
+          lipo dist/OpenCADStudio.app/Contents/MacOS/OpenCADStudio-App -verify_arch x86_64
           codesign --verify --deep --strict dist/OpenCADStudio.app
           python3 docs/automation/mcp_handshake.py dist/OpenCADStudio.app/Contents/MacOS/OpenCADStudio
       - name: Publish downloadable DMG
